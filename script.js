@@ -31,7 +31,5 @@ document.querySelector('.prev').addEventListener('click', function() {
       navList.classList.toggle("active");
     });
   });
-
-  document.addEventListener()
   
 
