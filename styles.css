@@ -298,8 +298,6 @@ padding-bottom:7rem;
 
 }
 
-
-
 #propuesta{
 background-color: #234788;
 }
@@ -319,7 +317,7 @@ justify-content: center;
 .materias-plan{
 display: flex;
 flex-direction: column;
-margin: 10px 30px;
+margin: 10px 50px;
 padding: 0;
 width: 300px;
 text-align: center;
@@ -453,6 +451,11 @@ padding-bottom: 30px;
 }
 
 /* Form container */
+@media (max-width: 768px) {
+  .form-container {
+    width:55%;
+  }
+}
 .form-container {
 flex: 1 1 45%;
 max-width: 400px;
@@ -499,6 +502,11 @@ background-color: #dc9e0d;
 }
 
 /* Map container */
+@media (max-width: 768px) {
+  .map-container iframe {
+    width:55%;
+  }
+}
 .map-container {
 flex: 1 1 45%;
 max-width: 450px;
@@ -536,8 +544,8 @@ padding-bottom: 50px;
 display: inline-block;
 margin: 5px;
 padding: 10px 20px;
-background-color: #e1b142;
-color: #234788;
+background-color: #234788;
+color: #fff;
 text-decoration: none;
 border-radius: 5px;
 font-weight: bold;
@@ -545,6 +553,5 @@ transition: background-color 0.3s, color 0.3s;
 }
 
 .contact-links a:hover {
-background-color: #ffffff;
 color: #e1b142;
 }
