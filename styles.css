@@ -1,0 +1,550 @@
+/* Custom properties/variables  */
+:root {
+  --main-white: #f0f0f0;
+  --main-red: #be3144;
+  --main-blue: #45567d;
+  --main-gray: #303841;
+  --main-skye: #75dfee;
+}
+
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* box-sizing and font sizing */
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+
+  /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+/* A few media query to set some font sizes at different screen sizes.
+ * This helps automate a bit of responsiveness.
+ * The trick is to use the rem unit for size values, margin and padding.
+ * Because rem is relative to the document font size
+ * when we scale up or down the font size on the document
+ * it will affect all properties using rem units for the values.
+*/
+
+/* I am using the em unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25em
+*/
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Base styles */
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem; /* 18px */
+  font-weight: 400;
+  line-height: 1.4;
+  color: var(--main-white);
+}
+
+h1,
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  text-align: center;
+}
+
+h1 {
+  font-size: 6rem;
+  color: #ffff;
+}
+
+h2 {
+  font-size: 4.2rem;
+  padding: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--main-white);
+}
+
+#welc-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* nav */
+
+.logo{
+  width: 125px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: 20px;
+}
+/* Desktop Navigation */
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background: #234788;
+  z-index: 10;
+}
+
+.nav-list {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-list a {
+  font-size: 2rem;
+  color: white;
+  padding: 1rem 1.5rem;
+}
+.nav-list a:hover {
+  font-weight: 1000;
+  transition: 0.2s;
+  color:#e1b142;
+  font-size: 2.25rem;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  font-size: 2.5rem;
+  color: white;
+  margin-right: 1rem;
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background: #234788;
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem 0;
+    text-align: right;
+    padding-right: 20px;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-list a {
+    text-align: center;
+    padding: 1rem 0;
+  }
+}
+
+/* Welcome section */
+
+.welcome-section {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100vh; /* Asegura que ocupe toda la altura del viewport */
+background-image: url('https://helvecia.com.uy/wp-content/uploads/2024/10/429817080_732065752398034_6894262899189352115_n-1.jpg');
+background-size: cover; /* Asegura que la imagen cubra todo el espacio */
+background-position: center; /* Centra la imagen */
+background-repeat: no-repeat; /* Evita repeticiones de la imagen */
+margin: 0; /* Elimina márgenes externos */
+padding: 0; /* Elimina cualquier relleno interno */
+}
+
+.welcome-section > p {
+  font-size: 3rem;
+  font-weight: 200;
+  font-style: italic;
+  color: #75dfee;
+}
+#logo {
+  text-align:center;
+  width: 200;
+}
+
+img {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+/* inscripciones section */
+
+.inscripciones-section > p{
+  margin: 2rem;
+  text-align: center;
+}
+
+#inscr-img{
+  display: block;
+  width: 100%;
+
+}
+
+.inscripciones-section {
+  text-align: center;
+  padding: 10rem 2rem;   
+  background-color: #eed393; 
+  color:#234788;
+}
+
+.inscripciones-section-header {
+  max-width: 580px;
+  margin: 0 auto 6rem auto;
+  border-bottom: 0.2rem solid #234788;
+  margin-bottom: 10px; /* Reduce space below the header */
+
+}
+
+@media (max-width: 28.75em) {
+  .inscripciones-section-header {
+    font-size: 4rem;
+  }
+}
+
+#inscr-text {
+  margin-top: 0; /* Ensure no additional space above the paragraph */
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 2px;
+}
+
+.btn-show-all {
+  font-size: 2rem;
+  background: var(--main-gray);
+  transition: background 0.3s ease-out;
+  border-radius: 8px;
+}
+
+.btn-show-all:hover {
+ background-color: #1c1b5b;
+}
+
+/* materias section */
+
+
+.hidden {
+  display: none;
+}
+
+.propuesta-section-header {
+  max-width: 580px;
+  margin: 0 auto 6rem auto;
+  margin-bottom: 10px; /* Reduce space below the header */
+
+}
+
+#prop-text {
+margin-top: 0; /* Ensure no additional space above the paragraph */
+margin: 2rem;
+text-align: center;
+margin-bottom: 0px; /* Reduce space below the header */
+padding-bottom:7rem;
+
+}
+
+
+
+#propuesta{
+background-color: #234788;
+}
+
+#propuesta-text {
+margin-bottom: 2rem;
+}
+
+#materias {
+padding-top: 65px;
+}
+.materias-div{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+.materias-plan{
+display: flex;
+flex-direction: column;
+margin: 10px 30px;
+padding: 0;
+width: 300px;
+text-align: center;
+list-style: none;
+transition: .3s;
+}
+
+.materias-title {
+padding: 20px 0;
+font-size: 1.5em;
+font-weight: 600;
+color: #234788;
+background-color: #ffff;
+border-radius: 8px 8px 0px 0px;
+}
+
+.get {
+padding: 20px 0;
+background-color: #fff;
+transition: .3s;
+border-top: 2px solid #234788;
+border-radius: 0px 0px 8px 8px;
+cursor: pointer;
+margin-bottom: 6rem;
+}
+.get-btn:hover {
+color: #e1b142;
+transition: .1s;
+}
+.get-btn {
+font-size: 1.5em;
+font-weight: 600;
+color: #234788;
+text-decoration: none;
+}
+
+.more-content {
+padding-bottom:1rem;
+padding-right: 10px;
+padding-left: 10px;
+border-left: 2px solid #fff;
+border-right: 2px solid #fff;
+}
+
+
+
+/* gallery section*/
+.gallery-section {
+  background-color: #eed393; /* Blue background */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.gallery-section-header {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+  color: #234788; /* Gold text for the header */
+  margin-bottom: 20px;
+}
+
+.carousel {
+  position: relative;
+  max-width: 80%;
+  margin: 20px auto;
+  overflow: hidden; /* Hides extra images */
+  border: 5px solid #e1b142; /* Gold border */
+  border-radius: 10px;
+  background-color: #ffffff; /* White background inside */
+  height: 400px; /* Set a fixed height for the carousel */
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Smooth sliding */
+}
+
+.carousel-images img {
+  width: 100%;
+  height: 100%; /* Ensure images fill the container height */
+  object-fit: cover; /* Keeps images proportional */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #e1b142; /* Gold background for buttons */
+  color: #234788; /* Blue text for arrows */
+  border: none;
+  font-size: 2em;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Button shadow */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.carousel-control:hover {
+  background-color: #ffffff; /* White on hover */
+  color: #234788; /* Blue arrows on hover */
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+
+
+/* Contact section */
+/* Container for the form and map */
+.contact-container {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+justify-content: space-around;
+align-items: flex-start;
+margin-bottom: 40px;
+background-color: #234788;
+padding-top: 30px;
+padding-bottom: 30px;
+}
+
+/* Form container */
+.form-container {
+flex: 1 1 45%;
+max-width: 400px;
+}
+
+form {
+display: flex;
+flex-direction: column;
+}
+
+form label {
+font-weight: bold;
+margin-bottom: 5px;
+color: #234788;
+}
+
+form input,
+form textarea {
+width: 100%;
+padding: 10px;
+margin-bottom: 15px;
+border: 1px solid #ddd;
+border-radius: 5px;
+font-size: 16px;
+font-family:Arial;
+}
+
+form button {
+width: 100%;
+padding: 10px;
+background-color: #e1b142;
+color: #fff;
+border: none;
+border-radius: 5px;
+font-size: 18px;
+cursor: pointer;
+transition: background-color 0.3s;
+border-radius: 100px;
+font-family:'Raleway' ;
+}
+
+form button:hover {
+background-color: #dc9e0d;
+}
+
+/* Map container */
+.map-container {
+flex: 1 1 45%;
+max-width: 450px;
+text-align: center;
+}
+
+.map-container iframe {
+width: 100%;
+height: 350px;
+border: 1px solid #ddd;
+border-radius: 5px;
+padding-top: 50px;
+}
+
+/* Social media links */
+.social-media-container {
+text-align: center;
+margin-top: 20px;
+}
+
+.social-media-container h2 {
+margin-bottom: 10px;
+color: #234788;
+}
+
+.contact-links {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 10px;
+padding-bottom: 50px;
+}
+
+.contact-links a {
+display: inline-block;
+margin: 5px;
+padding: 10px 20px;
+background-color: #e1b142;
+color: #234788;
+text-decoration: none;
+border-radius: 5px;
+font-weight: bold;
+transition: background-color 0.3s, color 0.3s;
+}
+
+.contact-links a:hover {
+background-color: #ffffff;
+color: #e1b142;
+}
